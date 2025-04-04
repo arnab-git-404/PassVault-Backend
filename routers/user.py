@@ -23,7 +23,16 @@ router = APIRouter()
 user_handler = UserHandler(collection)
 
 # Connect to Redis (make sure Redis is running)
-r = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
+# r = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
+
+# Connect to Redis During Deployment 
+r = redis.Redis(
+    host='redis-13856.crce179.ap-south-1-1.ec2.redns.redis-cloud.com',
+    port=13856,
+    decode_responses=True,
+    username="default",
+    password="kJqiN2OwCqzzCVkTa6FlR6w3o97hY1I8",
+)
 
 
 OTP_EXPIRY_TIME = 60 * 5  # OTP expires after 5 minutes (300 seconds)
