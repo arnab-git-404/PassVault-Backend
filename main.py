@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],  # Update with your frontend URL
@@ -15,4 +16,6 @@ app.add_middleware(
 app.include_router(api_router, prefix="/api")
 
 
-
+@app.get("/")
+async def root():
+    return {"message": "Welcome to The PassVault Backend Server"}
