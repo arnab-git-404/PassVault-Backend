@@ -232,11 +232,12 @@ async def signin_user(user: UserLogin):
                     "message": "User not found"
                 }
             )
+        
 
         stored_password = existing_user["password"]
-        
-        # Check password using bcrypt.checkpw
-        if not bcrypt.checkpw(user.password.encode('utf-8'), stored_password):
+
+
+        if user.password != stored_password:
             return JSONResponse(
                 status_code=401,
                 content={
@@ -244,6 +245,21 @@ async def signin_user(user: UserLogin):
                     "message": "Invalid password"
                 }
             )
+
+        
+
+        # Check password using bcrypt.checkpw
+        # if not bcrypt.checkpw(user.password.encode('utf-8'), stored_password):
+        #     return JSONResponse(
+        #         status_code=401,
+        #         content={
+        #             "status_code": 401, 
+        #             "message": "Invalid password"
+        #         }
+        #     )
+
+
+
 
         user_id = str(existing_user["_id"])
 
@@ -461,7 +477,6 @@ async def verify_2fa(user: VerifyTwoFactorAuth):
             "status_code": 500, 
             "message": f"Failed to verify 2FA: {str(e)}"
         })
-
 
 
 @router.post('/reset-2fa')
