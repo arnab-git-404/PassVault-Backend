@@ -160,14 +160,14 @@ async def create_user(user: User):
                 "message": "User already exists. Please use a different email."
             })
 
-
-        encoded_Password = bcrypt.hashpw(user.password.encode('utf-8'), bcrypt.gensalt(14))
+        #This Has to be done from Frontend, So comment DOne
+        # encoded_Password = bcrypt.hashpw(user.password.encode('utf-8'), bcrypt.gensalt(14)    )
 
         if int(user.otp) == int(otp_from_redis):
             # OTP matched, save user to database
             user.otp = otp_from_redis
             user.isVerified = True
-            user.password = encoded_Password
+            user.password = user.password
             
             collection.insert_one(dict(user))
             created_user = collection.find_one({"email": user.email})
