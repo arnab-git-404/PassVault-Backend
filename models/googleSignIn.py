@@ -37,7 +37,6 @@ class GoogleAuthRequest(BaseModel):
     name: str
     email: str
     google_id: str
-    
     isVerified: bool = True
     is_2FA_Enabled: bool = False
     is_google_user: bool = True

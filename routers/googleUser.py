@@ -37,7 +37,7 @@ def user_helper(user) -> dict:
 #     return None
 
 async def get_user_by_email(email: str):
-    user = collection.find_one({"email": email})  # Add await here
+    user = await collection.find_one({"email": email})  # Add await here
     if user:
         return user_helper(user)  # Convert to consistent format
     return None
@@ -50,7 +50,7 @@ async def get_user_by_email(email: str):
 #     return None
 
 async def get_user_by_google_id(google_id: str):
-    user =  collection.find_one({"google_id": google_id})  # Add await here
+    user = await collection.find_one({"google_id": google_id})  # Add await here
     if user:
         return user_helper(user)  # Convert to consistent format
     return None
@@ -121,7 +121,7 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
 
 
 @router.post("/google-auth")
-async def google_authentication(user_data: GoogleAuthRequest = Body(...)):
+async def google_authentication(user_data: GoogleAuthRequest):
 
     # Check if user exists by email
     user = await get_user_by_email(user_data.email)
