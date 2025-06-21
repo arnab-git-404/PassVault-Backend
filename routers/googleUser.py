@@ -37,7 +37,7 @@ def user_helper(user) -> dict:
 #     return None
 
 async def get_user_by_email(email: str):
-    user = await collection.find_one({"email": email})  # Add await here
+    user = collection.find_one({"email": email})  # Add await here
     if user:
         return user_helper(user)  # Convert to consistent format
     return None
@@ -50,7 +50,7 @@ async def get_user_by_email(email: str):
 #     return None
 
 async def get_user_by_google_id(google_id: str):
-    user = await collection.find_one({"google_id": google_id})  # Add await here
+    user = collection.find_one({"google_id": google_id})  # Add await here
     if user:
         return user_helper(user)  # Convert to consistent format
     return None
