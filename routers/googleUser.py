@@ -121,7 +121,7 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
 
 
 @router.post("/google-auth")
-async def google_authentication(user_data: GoogleAuthRequest):
+async def google_authentication(user_data: GoogleAuthRequest = Body(...)):
 
     # Check if user exists by email
     user = await get_user_by_email(user_data.email)
