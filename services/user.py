@@ -1,14 +1,18 @@
 import random
 import smtplib
+import os
+from dotenv import load_dotenv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime, timedelta
 
+load_dotenv()
+
 class UserHandler:
     def __init__(self, user_service):
         self.user_service = user_service
-        self.sender_email = "arnab.rph.99@gmail.com"  # Use your email
-        self.sender_password = "uqjk zrxr qnug whvn"  # Use your email password or app password
+        self.sender_email = os.getenv("SENDER_EMAIL") 
+        self.sender_password = os.getenv("SENDER_PASSWORD")  
 
     def generate_otp(self):
         return random.randint(111111, 999999)

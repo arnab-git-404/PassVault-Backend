@@ -17,7 +17,10 @@ from datetime import datetime, timedelta
 from jose import JWTError, jwt, ExpiredSignatureError
 from fastapi import Header
 import bcrypt
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 router = APIRouter()
 user_handler = UserHandler(collection)
@@ -28,17 +31,17 @@ user_handler = UserHandler(collection)
 # Connect to Redis During Deployment 
 
 r = redis.Redis(
-    host='redis-17638.c305.ap-south-1-1.ec2.redns.redis-cloud.com',
+    host=os.getenv("REDIS_HOST"),
     port=17638,
     decode_responses=True,
     username="default",
-    password="fVHNXu8A2tltofGwwrWdmwD2LdwHvjuG",
+    password=os.getenv("REDIS_PASSWORD"),
 )
 
 OTP_EXPIRY_TIME = 60 * 5  # OTP expires after 5 minutes (300 seconds)
 
 SECRET_KEY = "6006"
-ALGORITHM = "HS256"
+ALGORITHM = os.getenv("HASH_ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 def create_access_token(data: dict, expires_delta: timedelta = None):
