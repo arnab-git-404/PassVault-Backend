@@ -8,7 +8,9 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://pass-vault-frontend.vercel.app"],  # Update with your frontend URL
+    allow_origins=["https://pass-vault-frontend.vercel.app",
+                   "https://passvault-f36db.firebaseapp.com", 
+                   "https://passvault-f36db.web.app"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
