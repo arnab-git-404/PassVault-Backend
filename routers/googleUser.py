@@ -192,7 +192,7 @@ async def google_authentication(user_data: GoogleAuthRequest = Body(...)):
         }
     }
     )
-    response.set_cookie(key="access_token", value=f"Bearer {access_token}", httponly=True, secure=True, max_age=ACCESS_TOKEN_EXPIRE_MINUTES)
+    response.set_cookie(key="access_token", value=f"Bearer {access_token}", httponly=True, secure=True, samesite="none", max_age=ACCESS_TOKEN_EXPIRE_MINUTES)
 
     return response
 
