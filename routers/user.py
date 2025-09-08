@@ -30,13 +30,16 @@ user_handler = UserHandler(collection)
 
 # Connect to Redis During Deployment 
 
+
 r = redis.Redis(
     host=os.getenv("REDIS_HOST"),
-    port=17638,
+    port=16194,
     decode_responses=True,
     username="default",
     password=os.getenv("REDIS_PASSWORD"),
 )
+
+
 
 OTP_EXPIRY_TIME = 60 * 5  # OTP expires after 5 minutes (300 seconds)
 
