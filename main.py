@@ -8,7 +8,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://pass-vault-frontend.vercel.app"],
+    allow_origins=["https://pass-vault-frontend.vercel.app","*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
