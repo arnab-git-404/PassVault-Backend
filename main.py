@@ -10,8 +10,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://pass-vault-frontend.vercel.app","*"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    # allow_methods=["*"],
+    # allow_headers=["*"],
 )
 app.include_router(api_router, prefix="/api")
 
