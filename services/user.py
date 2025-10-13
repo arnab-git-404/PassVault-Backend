@@ -35,6 +35,9 @@ class UserHandler:
             message["Subject"] = "[PassVault - Password Reset Code] "
             body = self._get_reset_template(otp)
             
+        elif purpose == "account_deletion":
+            message["Subject"] = "[PassVault - Account Deletion Code]"
+            body = self._get_delete_account_template(otp)
         else:
             message["Subject"] = "[PassVault - Verification Code]"
             body = self._get_generic_template(otp)
@@ -388,7 +391,7 @@ class UserHandler:
             <body>
                 <div class="container">
                     <div class="header">
-                        <img src="https://yourdomain.com/logo.png" alt="PassVault Logo" class="logo" />
+                        <img src="https://raw.githubusercontent.com/arnab-git-404/PassVault-Frontend/refs/heads/main/public/01.webp" alt="PassVault" class="logo" />
                         <h1>Password Reset</h1>
                     </div>
                     
@@ -761,3 +764,190 @@ class UserHandler:
             </body>
         </html>
         """
+
+    def _get_delete_account_template(self, otp):
+        return f"""
+        <html>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>PassVault - Account Deletion Code</title>
+                <style>
+                    body {{
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        line-height: 1.6;
+                        color: #333333;
+                        background-color: #f9f9f9;
+                        margin: 0;
+                        padding: 0;
+                    }}
+                    .container {{
+                        max-width: 600px;
+                        margin: 20px auto;
+                        background-color: #ffffff;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                    }}
+                    .header {{
+                        background: linear-gradient(135deg, #2c3e50, #3498db);
+                        padding: 30px 20px;
+                        text-align: center;
+                    }}
+                    .logo {{
+                        width: 150px;
+                        height: auto;
+                        margin-bottom: 15px;
+                    }}
+                    .header h1 {{
+                        color: white;
+                        margin: 0;
+                        font-size: 24px;
+                        font-weight: 600;
+                    }}
+                    .content {{
+                        padding: 30px;
+                    }}
+                    h2 {{
+                        color: #2c3e50;
+                        margin-top: 0;
+                        font-size: 22px;
+                        font-weight: 600;
+                    }}
+                    p {{
+                        margin-bottom: 20px;
+                        font-size: 16px;
+                    }}
+                    .code-container {{
+                        background-color: #f5f7fa;
+                        border-radius: 6px;
+                        padding: 20px;
+                        margin: 25px 0;
+                        text-align: center;
+                        border-left: 4px solid #3498db;
+                    }}
+                    .verification-code {{
+                        font-size: 32px;
+                        font-weight: bold;
+                        color: #2c3e50;
+                        letter-spacing: 8px;
+                        margin: 0;
+                    }}
+                    .expiry {{
+                        background-color: #fff8e1;
+                        border-radius: 4px;
+                        padding: 10px 15px;
+                        margin: 25px 0;
+                        font-size: 14px;
+                        border-left: 4px solid #ffc107;
+                    }}
+                    .expiry-icon {{
+                        display: inline-block;
+                        margin-right: 5px;
+                        color: #ffc107;
+                        font-weight: bold;
+                    }}
+                    .warning {{
+                        background-color: #fef2f2;
+                        border-radius: 4px;
+                        padding: 10px 15px;
+                        margin: 25px 0;
+                        font-size: 14px;
+                        border-left: 4px solid #ef4444;
+                    }}
+                    .warning-icon {{
+                        display: inline-block;
+                        margin-right: 5px;
+                        color: #ef4444;
+                        font-weight: bold;
+                    }}
+                    .footer {{
+                        background-color: #f5f7fa;
+                        padding: 20px;
+                        text-align: center;
+                        border-top: 1px solid #e5e7eb;
+                    }}
+                    .footer p {{
+                        color: #6b7280;
+                        font-size: 13px;
+                        margin: 0;
+                    }}
+                    .social-links {{
+                        margin-top: 15px;
+                    }}
+                    .social-links a {{
+                        display: inline-block;
+                        margin: 0 8px;
+                        color: #6b7280;
+                        text-decoration: none;
+                    }}
+                    .button {{
+                        display: inline-block;
+                        background-color: #3498db;
+                        color: white;
+                        text-decoration: none;
+                        padding: 12px 25px;
+                        border-radius: 4px;
+                        font-weight: 500;
+                        margin-top: 15px;
+                        text-align: center;
+                    }}
+                    @media only screen and (max-width: 600px) {{
+                        .container {{
+                            width: 100%;
+                            margin: 0;
+                            border-radius: 0;
+                        }}
+                        .content {{
+                            padding: 20px;
+                        }}
+                        .verification-code {{
+                            font-size: 28px;
+                            letter-spacing: 6px;
+                        }}
+                    }}
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header">
+                        <img src="https://raw.githubusercontent.com/arnab-git-404/PassVault-Frontend/refs/heads/main/public/01.webp" alt="PassVault" class="logo" />
+                        <h1>Account Deletion </h1>
+                    </div>
+                    
+                    <div class="content">
+                        <h2>Account Deletion Code</h2>
+                        <p>Hello there,</p>
+                        <p>We received a request to delete your PassVault account. To proceed with deleting your account, please use the code below:</p>
+                        
+                        <div class="code-container">
+                            <div class="verification-code">{otp}</div>
+                        </div>
+                        
+                        <div class="expiry">
+                            <span class="expiry-icon">⏱</span> This code will expire in <strong>5 minutes</strong>. Please enter it promptly to complete your password reset.
+                        </div>
+                        
+                        <div class="warning">
+                            <span class="warning-icon">⚠️</span> If you didn't request a password reset, please secure your account immediately or contact our support team as someone may be attempting to access your account.
+                        </div>
+                        
+                        <p>After resetting your password, we recommend updating passwords for any other accounts that may have used similar credentials.</p>
+                        
+                        <a href="https://pass-vault-frontend.vercel.app/forget-password" class="button">Reset Password</a>
+                    </div>
+                    
+                    <div class="footer">
+                        <p>© {datetime.now().year} PassVault. All rights reserved.</p>
+                        <p>This is an automated message, please do not reply to this email.</p>
+                        <div class="social-links">
+                            <a href="https://pass-vault-frontend.vercel.app/">Privacy Policy</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/">Terms of Service</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/support">Support</a>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </html>
+        """
+    
