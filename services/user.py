@@ -206,7 +206,7 @@ class UserHandler:
             <body>
                 <div class="container">
                     <div class="header">
-                        <img src="https://yourdomain.com/logo.png" alt="PassVault Logo" class="logo" />
+                        <img src="https://raw.githubusercontent.com/arnab-git-404/PassVault-Frontend/refs/heads/main/public/01.webp" alt="PassVault" class="logo" />
                         <h1>Account Verification</h1>
                     </div>
                     
@@ -229,16 +229,16 @@ class UserHandler:
                         
                         <p>Once verified, you'll have access to all of PassVault's secure password management features.</p>
                         
-                        <a href="https://passvault.yourdomain.com" class="button">Return to PassVault</a>
+                        <a href="https://pass-vault-frontend.vercel.app/" class="button">Return to PassVault</a>
                     </div>
                     
                     <div class="footer">
                         <p>© {datetime.now().year} PassVault. All rights reserved.</p>
                         <p>This is an automated message, please do not reply to this email.</p>
                         <div class="social-links">
-                            <a href="#">Privacy Policy</a> | 
-                            <a href="#">Terms of Service</a> | 
-                            <a href="#">Support</a>
+                            <a href="https://pass-vault-frontend.vercel.app/">Privacy Policy</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/">Terms of Service</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/support">Support</a>
                         </div>
                     </div>
                 </div>
@@ -415,16 +415,15 @@ class UserHandler:
                         
                         <p>After resetting your password, we recommend updating passwords for any other accounts that may have used similar credentials.</p>
                         
-                        <a href="https://passvault.yourdomain.com/reset" class="button">Reset Password</a>
                     </div>
                     
                     <div class="footer">
                         <p>© {datetime.now().year} PassVault. All rights reserved.</p>
                         <p>This is an automated message, please do not reply to this email.</p>
                         <div class="social-links">
-                            <a href="#">Privacy Policy</a> | 
-                            <a href="#">Terms of Service</a> | 
-                            <a href="#">Support</a>
+                            <a href="https://pass-vault-frontend.vercel.app/">Privacy Policy</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/">Terms of Service</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/support">Support</a>
                         </div>
                     </div>
                 </div>
@@ -578,7 +577,7 @@ class UserHandler:
             <body>
                 <div class="container">
                     <div class="header">
-                        <img src="https://yourdomain.com/logo.png" alt="PassVault Logo" class="logo" />
+                        <img src="https://raw.githubusercontent.com/arnab-git-404/PassVault-Frontend/refs/heads/main/public/01.webp" alt="PassVault" class="logo" />
                         <h1>Verification Required</h1>
                     </div>
                     
@@ -601,16 +600,16 @@ class UserHandler:
                         
                         <p>Need help? Our support team is available to assist you with any questions or concerns.</p>
                         
-                        <a href="https://passvault.yourdomain.com" class="button">Visit PassVault</a>
+                        <a href="https://pass-vault-frontend.vercel.app/" class="button">Visit PassVault</a>
                     </div>
                     
                     <div class="footer">
                         <p>© {datetime.now().year} PassVault. All rights reserved.</p>
                         <p>This is an automated message, please do not reply to this email.</p>
                         <div class="social-links">
-                            <a href="#">Privacy Policy</a> | 
-                            <a href="#">Terms of Service</a> | 
-                            <a href="#">Support</a>
+                            <a href="https://pass-vault-frontend.vercel.app/">Privacy Policy</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/">Terms of Service</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/support">Support</a>
                         </div>
                     </div>
                 </div>
@@ -732,7 +731,7 @@ class UserHandler:
             <body>
                 <div class="container">
                     <div class="header">
-                        <img src="https://yourdomain.com/logo.png" alt="PassVault Logo" class="logo" />
+                        <img src="https://raw.githubusercontent.com/arnab-git-404/PassVault-Frontend/refs/heads/main/public/01.webp" alt="PassVault" class="logo" />
                         <h1>Master Key Reset</h1>
                     </div>
                     
@@ -756,9 +755,9 @@ class UserHandler:
                         <p>© {datetime.now().year} PassVault. All rights reserved.</p>
                         <p>This is an automated message, please do not reply to this email.</p>
                         <div class="social-links">
-                            <a href="#">Privacy Policy</a> | 
-                            <a href="#">Terms of Service</a> | 
-                            <a href="#">Support</a>
+                            <a href="https://pass-vault-frontend.vercel.app/">Privacy Policy</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/">Terms of Service</a> | 
+                            <a href="https://pass-vault-frontend.vercel.app/support">Support</a>
                         </div>
                     </div>
                 </div>
@@ -919,8 +918,10 @@ class UserHandler:
                     <div class="content">
                         <h2>Account Deletion Code</h2>
                         <p>Hello there,</p>
-                        <p>We received a request to delete your PassVault account. To proceed with deleting your account, please use the code below:</p>
+                        <p>We received a request to delete your PassVault account. If you did not request this, your account has not been deleted. No action is required — simply ignore this email. If you are concerned about unauthorized activity, please contact our support team immediately.</p>
+                        <p>If you do wish to proceed with deletion, use the code below within the time limit:</p>
                         
+
                         <div class="code-container">
                             <div class="verification-code">{otp}</div>
                         </div>
@@ -930,10 +931,9 @@ class UserHandler:
                         </div>
                         
                         <div class="warning">
-                            <span class="warning-icon">⚠️</span> If you didn't request a password reset, please secure your account immediately or contact our support team as someone may be attempting to access your account.
+                            <span class="warning-icon">⚠️</span> If you didn't request this deletion, ignore this email. If you notice other suspicious activity, secure your account and contact support.
                         </div>
                         
-                        <p>After resetting your password, we recommend updating passwords for any other accounts that may have used similar credentials.</p>
                         
                     </div>
                     
