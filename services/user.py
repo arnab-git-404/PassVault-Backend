@@ -38,6 +38,7 @@ class UserHandler:
         elif purpose == "account_deletion":
             message["Subject"] = "[PassVault - Account Deletion Code]"
             body = self._get_delete_account_template(otp)
+
         else:
             message["Subject"] = "[PassVault - Verification Code]"
             body = self._get_generic_template(otp)
@@ -934,7 +935,6 @@ class UserHandler:
                         
                         <p>After resetting your password, we recommend updating passwords for any other accounts that may have used similar credentials.</p>
                         
-                        <a href="https://pass-vault-frontend.vercel.app/forget-password" class="button">Reset Password</a>
                     </div>
                     
                     <div class="footer">
